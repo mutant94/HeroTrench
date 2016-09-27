@@ -22,7 +22,7 @@ public class ControllerApocalypse extends GameController {
         for(Trench trench: trenches){
             //trench.update(1, 1);
         }
-        for (Tree tree: trees){
+        for (Tree tree: impediments){
             //tree.update(1, 1);
         }
     }

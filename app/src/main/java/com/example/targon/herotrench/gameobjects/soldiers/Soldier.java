@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Rect;
 
 import com.example.targon.herotrench.gameobjects.GameObject;
 import com.example.targon.herotrench.gameobjects.soldiers.armament.Gun;
@@ -17,11 +16,11 @@ import java.util.List;
  * Created by Targon on 13.09.2016.
  */
 public abstract class Soldier extends GameObject{
-    public final static int MAX_SPEED = Pad.PAD_BOTTOM_SIZE / 24, SOLDIER_SIZE = 34, FRENCH = 1, GERMAN = 2;
-    protected int country;
+    public final static int SPEED_LIMIT = 15, MAX_SPEED = (Pad.PAD_BOTTOM_SIZE /2) / SPEED_LIMIT, SOLDIER_SIZE = 34, FRENCH = 1, GERMAN = 2, NOT_IN_TRENCH = -1;
+    protected int country, trenchId;
     protected Bitmap imageStay;
     protected Bitmap[] imagesWalk;
-    protected boolean walk, inTrench, inFabric;
+    protected boolean walk, inTrench, inFactory;
     protected Gun gun;
     protected float angle;
 
@@ -31,7 +30,7 @@ public abstract class Soldier extends GameObject{
         this.imagesWalk = imagesWalk;
         walk = false;
         inTrench = false;
-        inFabric = false;
+        inFactory = false;
         gun = new Gun(imageGun);
         angle = 0;
     }
@@ -67,8 +66,8 @@ public abstract class Soldier extends GameObject{
         this.angle = angle;
     }
 
-    public void setInFabric(boolean inFabric) {
-        this.inFabric = inFabric;
+    public void setInFactory(boolean inFactory) {
+        this.inFactory = inFactory;
     }
 
     public boolean isInTrench() {

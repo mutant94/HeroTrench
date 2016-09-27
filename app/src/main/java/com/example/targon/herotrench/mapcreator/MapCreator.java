@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import com.example.targon.herotrench.R;
+import com.example.targon.herotrench.gameobjects.impediments.Impediment;
 import com.example.targon.herotrench.gameobjects.impediments.Tree;
 import com.example.targon.herotrench.gameobjects.trenchs.Trench;
 import com.example.targon.herotrench.gameobjects.trenchs.TrenchCheck;
@@ -22,12 +23,12 @@ public class MapCreator {
     Bitmap trenchImage, treeImage;
     public MapCreator(Context context) {
         this.context = context;
-        this.trenchImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.trench);
-        this.treeImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.tree);
+        this.trenchImage = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.trench), SIZE_CHECK, SIZE_CHECK, true);
+        this.treeImage = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.tree), SIZE_CHECK, SIZE_CHECK, true);
     }
 
     //Tree
-    public List<Tree> crateTreeList(int startX, int startY, boolean vertical, int count) {
+    public List<Impediment> crateTreeList(int startX, int startY, boolean vertical, int count) {
         if (vertical) {
             return createVerticalTreeList(startX, startY, count);
         } else {
@@ -35,8 +36,8 @@ public class MapCreator {
         }
     }
 
-    private List<Tree> createVerticalTreeList(int startX, int startY, int count) {
-        List<Tree> trees = new ArrayList<>();
+    private List<Impediment> createVerticalTreeList(int startX, int startY, int count) {
+        List<Impediment> trees = new ArrayList<>();
         Tree tree;
         for (int i = 0; i < count; i++) {
             tree = new Tree(startX * SIZE_CHECK, (startY + i) * SIZE_CHECK, SIZE_CHECK, SIZE_CHECK, treeImage);
@@ -45,8 +46,8 @@ public class MapCreator {
         return trees;
     }
 
-    private List<Tree> createHorizontalTreeList(int startX, int startY, int count) {
-        List<Tree> trees = new ArrayList<>();
+    private List<Impediment> createHorizontalTreeList(int startX, int startY, int count) {
+        List<Impediment> trees = new ArrayList<>();
         Tree tree;
         for (int i = 0; i < count; i++) {
             tree = new Tree((startX + i) * SIZE_CHECK, startY * SIZE_CHECK, SIZE_CHECK, SIZE_CHECK, treeImage);

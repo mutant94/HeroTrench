@@ -12,11 +12,11 @@ import com.example.targon.herotrench.mapcreator.MapCreator;
  * Created by Targon on 20.09.2016.
  */
 
-public class SoldierFabric extends GameObject{
+public class SoldierFactory extends GameObject{
     public final static int DELAY_STANDARD = 10;
     private int state, delay, country;
 
-    public SoldierFabric(int positionX, int positionY, int sizeX, int sizeY, int startDelay, int delay, int country) {
+    public SoldierFactory(int positionX, int positionY, int sizeX, int sizeY, int startDelay, int delay, int country) {
         super(positionX, positionY, sizeX, sizeY);
         state = delay - startDelay;
         this.delay = delay;
@@ -47,12 +47,12 @@ public class SoldierFabric extends GameObject{
         Soldier soldier;
         if(country == Soldier.GERMAN){
             soldier = new GermanSoldier(positionX - (MapCreator.SIZE_CHECK - Soldier.SOLDIER_SIZE)/2, positionY - (MapCreator.SIZE_CHECK - Soldier.SOLDIER_SIZE)/2, Soldier.SOLDIER_SIZE, Soldier.SOLDIER_SIZE, image, walkImage, gunImage);
-            soldier.setInFabric(true);
+            soldier.setInFactory(true);
             return soldier;
 
         }
         soldier = new FrenchSoldier(positionX - (MapCreator.SIZE_CHECK - Soldier.SOLDIER_SIZE)/2, positionY - (MapCreator.SIZE_CHECK - Soldier.SOLDIER_SIZE)/2, Soldier.SOLDIER_SIZE, Soldier.SOLDIER_SIZE, image, walkImage, gunImage);
-        soldier.setInFabric(true);
+        soldier.setInFactory(true);
         return soldier;
     }
 }

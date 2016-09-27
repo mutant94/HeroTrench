@@ -12,12 +12,12 @@ import com.example.targon.herotrench.surfaceview.GamePanel;
 /**
  * Created by Targon on 13.09.2016.
  */
-public abstract class MainButton {
+public abstract class GameButton {
     protected int positionX, positionY, sizeX, sizeY;
     protected Bitmap image;
     protected boolean show;
 
-    public MainButton(int positionX, int positionY, int sizeX, int sizeY, Bitmap image) {
+    public GameButton(int positionX, int positionY, int sizeX, int sizeY, Bitmap image) {
         this.positionX = positionX;
         this.positionY = positionY;
         this.sizeX = sizeX;

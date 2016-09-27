@@ -6,6 +6,7 @@ import android.graphics.Paint;
 import android.util.Log;
 import android.view.MotionEvent;
 
+import com.example.targon.herotrench.gameobjects.soldiers.Soldier;
 import com.example.targon.herotrench.surfaceview.GamePanel;
 
 /**
@@ -115,11 +116,11 @@ public abstract class Pad {
     }
 
     public int getMoveX() {
-        return (positionX - centerX + PAD_SIZE / 2) / 12;
+        return (positionX - centerX + PAD_SIZE / 2) / Soldier.SPEED_LIMIT;
     }
 
     public int getMoveY() {
-        return (positionY - centerY + PAD_SIZE / 2) / 12;
+        return (positionY - centerY + PAD_SIZE / 2) / Soldier.SPEED_LIMIT;
     }
 
     public double getAngle() {
