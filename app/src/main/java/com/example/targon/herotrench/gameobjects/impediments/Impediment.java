@@ -26,7 +26,7 @@ public abstract class Impediment extends GameObject{
     }
 
     private boolean canShow(){
-        if(positionX+sizeX>0 && positionX > GamePanel.WIDTH && positionY+sizeY>0 && positionY > GamePanel.HEIGHT ){
+        if(positionX+sizeX>0 && positionX < GamePanel.WIDTH && positionY+sizeY>0 && positionY < GamePanel.HEIGHT ){
             return true;
         }
         return false;

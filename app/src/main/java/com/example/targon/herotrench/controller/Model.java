@@ -1,5 +1,7 @@
 package com.example.targon.herotrench.controller;
 
+import android.graphics.Canvas;
+
 import com.example.targon.herotrench.gameobjects.impediments.Impediment;
 import com.example.targon.herotrench.gameobjects.place.SoldierFactory;
 import com.example.targon.herotrench.gameobjects.soldiers.armament.Bullet;
@@ -60,5 +62,13 @@ public class Model {
 
     public List<Bullet> getBullets() {
         return bullets;
+    }
+
+    public void update(){
+
+    }
+
+    public void draw(Canvas canvas){
+
     }
 }

@@ -28,21 +28,19 @@ public class Bullet extends GameObject {
         paint.setColor(Color.BLACK);
     }
 
-    public void update() {
+    @Override
+    public void update(int moveX, int moveY) {
+        super.update(moveX, moveY);
         state++;
     }
 
+    @Override
     public void draw(Canvas canvas) {
         canvas.drawRect(positionX, positionY, positionX + sizeX, positionY + sizeY, paint);
     }
 
     public boolean canDelete() {
         return state >= MAX_STATE;
-    }
-
-    public boolean checkObjects(){
-        //TODO
-        return false;
     }
 
 

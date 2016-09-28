@@ -33,6 +33,7 @@ public abstract class Soldier extends GameObject{
         inFactory = false;
         gun = new Gun(imageGun);
         angle = 0;
+        trenchId = NOT_IN_TRENCH;
     }
 
     @Override

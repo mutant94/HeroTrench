@@ -63,7 +63,15 @@ public abstract class GameObject {
         return new Rect(this.positionX, this.positionY, this.positionX + this.sizeX, this.positionY + this.sizeY);
     }
 
+    public Rect getNewRect(int newPositionX, int newPositionY){
+        return new Rect(newPositionX, newPositionY, this.sizeX, this.sizeY);
+    }
+
     public boolean collision(GameObject object) {
         return Rect.intersects(this.getRect(), object.getRect());
+    }
+
+    public boolean collision(Rect rect) {
+        return Rect.intersects(this.getRect(), rect);
     }
 }

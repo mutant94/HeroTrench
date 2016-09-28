@@ -77,7 +77,13 @@ public class Gun {
         }
     }
 
-    private void shoot(){
+    public Bullet shoot(int nationality){
+        Bullet bullet = new Bullet(0, 0, angle, nationality);
+        shoot();
+        return bullet;
+    }
+
+    public void shoot(){
         countBullet--;
         wasShoot = true;
         stateShoot = 0;
